@@ -8,6 +8,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { InvoiceModule } from './invoice/invoice.module';
 import { ExchangeProduct } from './exchange-rate-products/exchange-rate-product.entity';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { ExchangeProduct } from './exchange-rate-products/exchange-rate-product.
     ScheduleModule.forRoot(),
     ProductsModule,
     InvoiceModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -6,9 +6,10 @@ import { Product } from './product.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ExchangeProduct } from 'src/exchange-rate-products/exchange-rate-product.entity';
 import { ExchangeRateService } from 'src/exchange-rate/exchange-rate.service';
+import { AuthModule } from 'src/auth/auth.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Product, ExchangeProduct])],
+  imports: [TypeOrmModule.forFeature([Product, ExchangeProduct]), AuthModule],
   providers: [ProductsService, ScraperService, ExchangeRateService],
   controllers: [ProductsController],
 })

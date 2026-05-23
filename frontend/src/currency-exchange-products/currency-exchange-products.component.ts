@@ -55,7 +55,7 @@ export class CurrencyExchangeProductsComponent implements OnInit {
         next: (products) => {
           this.dataSource.data = products;
           this.showSuccessMessage(
-            'Toate produsele au fost convertite folosind cursul valutare valabil azi.',
+            'Toate produsele au fost convertite folosind cursul valutar valabil azi.',
           );
         },
         error: (error) => {
