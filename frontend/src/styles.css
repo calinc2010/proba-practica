@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-mdc-header-row {
+  background-color: rgb(247, 247, 247) !important;
+  border-radius: 12px;
+}
+
+.mat-mdc-header-cell {
+  border-right: 1px solid #d5d5d5;
+}
+
+.mat-mdc-header-cell:last-child {
+  border-right: none;
+  border-radius: 0px 15px 0px 0px;
+}
+
+.mat-mdc-header-cell:first-child {
+  border-radius: 15px 0px 0px 0px;
+}
+
+.mat-mdc-cell {
+  padding: 15px !important;
+  background-color: aliceblue;
+}
+
+input.mat-mdc-input-element {
+  padding: 10px 10px;
+}
+
+textarea.mat-mdc-input-element {
+  padding: 10px 10px;
+}

@@ -1,0 +1,75 @@
+<div class="page-container">
+  <h2>Produse la Curs Valutar</h2>
+
+  <div class="actions-container">
+    <button
+      mat-raised-button
+      color="primary"
+      class="manual-scrape-button"
+      (click)="convertProducts()"
+    >
+      Converteste produsele folosind cursul valutar
+    </button>
+    <button
+      mat-raised-button
+      color="warn"
+      class="manual-scrape-button"
+      [disabled]="dataSource.data.length === 0"
+      (click)="deleteAllExchangeProducts()"
+    >
+      Sterge toate produsele
+    </button>
+  </div>
+
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    class="mat-elevation-z8 products-table"
+  >
+    <ng-container matColumnDef="imageUrl">
+      <th mat-header-cell *matHeaderCellDef>Imagine</th>
+      <td mat-cell *matCellDef="let product">
+        <img
+          [src]="product.imageUrl"
+          [alt]="product.name"
+          class="product-image"
+        />
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Nume</th>
+      <td mat-cell *matCellDef="let product">{{ product.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>Descriere</th>
+      <td mat-cell *matCellDef="let product">{{ product.description }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="priceUsd">
+      <th mat-header-cell *matHeaderCellDef>Pret(&#36;)</th>
+      <td mat-cell *matCellDef="let product">&#36;{{ product.priceUsd }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="usdRonRate">
+      <th mat-header-cell *matHeaderCellDef>Curs USD/RON</th>
+      <td mat-cell *matCellDef="let product">{{ product.usdRonRate }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="priceRon">
+      <th mat-header-cell *matHeaderCellDef>Pret RON</th>
+      <td mat-cell *matCellDef="let product">{{ product.priceRon }} RON</td>
+    </ng-container>
+
+    <ng-container matColumnDef="exchangeRateDate">
+      <th mat-header-cell *matHeaderCellDef>Data curs</th>
+      <td mat-cell *matCellDef="let product">
+        {{ product.exchangeRateDate }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

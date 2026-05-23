@@ -1,0 +1,31 @@
+<div class="layout-container">
+  <aside class="sidebar">
+    <h2 class="logo">Admin Panel</h2>
+
+    <button mat-button routerLink="/products" routerLinkActive="active-link">
+      Produse
+    </button>
+
+    <button
+      mat-button
+      routerLink="/invoice-upload"
+      routerLinkActive="active-link"
+    >
+      Incarca din Factura
+    </button>
+
+    <button
+      mat-button
+      routerLink="/exchange-products"
+      routerLinkActive="active-link"
+    >
+      Produse la Curs Valutar
+    </button>
+
+    <button mat-button class="logout-button">Logout</button>
+  </aside>
+
+  <main class="page-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

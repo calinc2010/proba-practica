@@ -1,0 +1,41 @@
+.page-container {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.products-table {
+  width: 100%;
+  border: 1px solid rgb(228, 227, 227);
+  border-radius: 15px;
+  margin-top: 30px;
+  padding-bottom: 10px;
+}
+
+.product-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.success-snackbar {
+  --mdc-snackbar-container-color: #ffffff;
+  --mdc-snackbar-supporting-text-color: #000000;
+  --mat-snack-bar-button-color: #1976d2;
+
+  border: 2px solid #1976d2;
+  border-radius: 8px;
+}
+
+.actions-container {
+  display: flex;
+  gap: 20px;
+}
+
+.auto-scrape-info {
+  align-self: center;
+}
+
+.manual-scrape-button {
+  align-self: center;
+}

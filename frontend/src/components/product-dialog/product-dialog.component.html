@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>Editează produs</h2>
+
+<mat-dialog-content [formGroup]="form">
+  <img
+    [src]="data.imageUrl"
+    [alt]="data.name"
+    style="width: 120px; height: 120px; object-fit: contain"
+  />
+
+  <mat-form-field appearance="outline" style="width: 100%; margin-top: 16px">
+    <mat-label>Nume</mat-label>
+    <input matInput formControlName="name" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" style="width: 100%">
+    <mat-label>Descriere</mat-label>
+    <textarea matInput rows="4" formControlName="description"></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" style="width: 100%">
+    <mat-label>Preț</mat-label>
+    <input matInput formControlName="price" />
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">Inchide</button>
+  <button mat-raised-button color="primary" (click)="save()">Salveaza</button>
+</mat-dialog-actions>

@@ -1,0 +1,71 @@
+<div class="page-container">
+  <h2>Produse</h2>
+
+  <div class="actions-container">
+    <button
+      mat-raised-button
+      color="primary"
+      class="manual-scrape-button"
+      (click)="runManualScrape()"
+    >
+      Ruleaza Scrape Manual
+    </button>
+    <h5 class="auto-scrape-info">
+      (Verificarea ruleaza si automat la fiecare ora in intervalul orar
+      12:00-18:00)
+    </h5>
+  </div>
+
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    matSort
+    class="mat-elevation-z8 products-table"
+  >
+    <ng-container matColumnDef="imageUrl">
+      <th mat-header-cell *matHeaderCellDef>Imagine</th>
+      <td mat-cell *matCellDef="let product">
+        <img
+          [src]="product.imageUrl"
+          [alt]="product.name"
+          class="product-image"
+        />
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nume</th>
+      <td mat-cell *matCellDef="let product">
+        {{ product.name }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Descriere</th>
+      <td mat-cell *matCellDef="let product">
+        {{ product.description }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Pret(&#36;)</th>
+      <td mat-cell *matCellDef="let product">&#36;{{ product.price }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actiuni</th>
+      <td mat-cell *matCellDef="let product">
+        <button mat-button color="primary" (click)="editProduct(product)">
+          Editeaza
+        </button>
+
+        <button mat-button color="warn" (click)="deleteProduct(product)">
+          Sterge
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
