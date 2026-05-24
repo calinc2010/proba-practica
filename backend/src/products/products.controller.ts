@@ -42,7 +42,7 @@ export class ProductsController {
     };
   }
 
-  //Login si scrape manual la produse, poate fi declansat daca apelam enpointul '/products/scrape'
+  //Login si scrape manual la produse, poate fi declansat manual. enpointul '/products/scrape'
   @Get('scrape')
   async fetchNewProducts() {
     const consumables = await this.scraperService.loginAndScrape();
@@ -76,23 +76,27 @@ export class ProductsController {
     return await this.productsService.updateProduct(id, product);
   }
 
-  //Adaugat pentru a facilita testarea
+  //Adaugat pentru a facilita testarea, sterge toate produsele care au pretul calculat folosind cursul valutar
+  // endpointul este '/products/exchange-products'
   @Delete('exchange-products')
   async deleteAllExchangeProducts() {
     return this.productsService.deleteAllExchangeProducts();
   }
-  //Stergere produs - endpointul este '/products/:idProdus'
 
+  //Stergere produs - endpointul este '/products/:idProdus'
   @Delete(':id')
   async deleteProduct(@Param('id') id: string) {
     return await this.productsService.deleteProduct(id);
   }
 
+  //Ia toate Produsele de la problema 1, cauta cursul valabil azi si le calculeaza pretul si le salveaza in DB
   @Post('convert-exchange')
   async convertProductsToRon() {
     return await this.productsService.convertProductsToRon();
   }
 
+  //Extrage din DB toate produsele din tabelul exchange_products si le returneaza catre frontend
+  // endpoint-ul este '/products/exchange-products'
   @Get('exchange-products')
   async getExchangeProducts() {
     return await this.productsService.getExchangeProducts();

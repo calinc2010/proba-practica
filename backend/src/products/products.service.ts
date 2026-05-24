@@ -69,6 +69,7 @@ export class ProductsService {
     };
   }
 
+  //adaugam produsele din primul tabel in cel cu exchange rate, dar verificam pentru duplicates.
   async convertProductsToRon() {
     const products = await this.productRepository.find();
 
@@ -110,11 +111,12 @@ export class ProductsService {
     return this.exchangeRateProductRepository.save(exchangeProducts);
   }
 
+  //gaseste toate produsele din tabelul cu produse cu schimb valutar
   async getExchangeProducts() {
     return await this.exchangeRateProductRepository.find();
   }
 
-  //adaugat pentru a facilita testarea :D
+  //adaugat pentru a facilita testarea
   async deleteAllExchangeProducts() {
     return await this.exchangeRateProductRepository.deleteAll();
   }

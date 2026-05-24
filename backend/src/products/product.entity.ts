@@ -2,7 +2,7 @@ import { Column, Entity, PrimaryGeneratedColumn, Unique } from 'typeorm';
 
 //Entitate product, pe baza acestui model se creeaza tabelul in DB
 //Numele unui produs este unic
-//Am folosit UUID
+//Am folosit UUID peste tot pentru id-uri
 @Entity('product')
 @Unique(['name'])
 export class Product {

@@ -1,5 +1,8 @@
 import { Column, Entity, PrimaryGeneratedColumn, Unique } from 'typeorm';
 
+//Entitate exchange_product, pe baza acestui model se creeaza tabelul cu produse cu schimb valutar in DB
+//Numele unui produs este unic
+//Am folosit UUID peste tot pentru id-uri
 @Entity('exchange_products')
 @Unique(['originalProductId', 'exchangeRateDate'])
 export class ExchangeProduct {

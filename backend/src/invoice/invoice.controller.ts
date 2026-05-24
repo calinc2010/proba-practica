@@ -11,6 +11,8 @@ import { InvoiceService } from '../invoice/invoice.service';
 export class InvoicesController {
   constructor(private readonly invoiceService: InvoiceService) {}
 
+  //Facem un POST request cu fisierul PDF(factura), extragem datele necesare si le returnam catre frontend
+  //endpointul este '/invoices/extract'
   @Post('extract')
   @UseInterceptors(FileInterceptor('file'))
   async extractInvoiceData(@UploadedFile() file: Express.Multer.File) {

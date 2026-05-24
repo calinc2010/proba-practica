@@ -39,3 +39,7 @@ input.mat-mdc-input-element {
 textarea.mat-mdc-input-element {
   padding: 10px 10px;
 }
+
+.mdc-button {
+  border-radius: 7px !important;
+}
